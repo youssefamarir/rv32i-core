@@ -1,0 +1,376 @@
+{
+ "tests": [
+  {
+   "name": "smoke",
+   "src": [
+    "firmware/smoke.S"
+   ],
+   "sig": "0000000c",
+   "cause": "EBREAK",
+   "pc": "00000018"
+  },
+  {
+   "name": "reset_x0",
+   "src": [
+    "firmware/tests/reset_x0.S"
+   ],
+   "sig": "00000001",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "alu",
+   "src": [
+    "firmware/tests/alu.S"
+   ],
+   "sig": "00000001",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "mem_lanes",
+   "src": [
+    "firmware/tests/mem_lanes.S"
+   ],
+   "sig": "00000001",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "branches",
+   "src": [
+    "firmware/tests/branches.S"
+   ],
+   "sig": "00000001",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "fence",
+   "src": [
+    "firmware/tests/fence.S"
+   ],
+   "sig": "00000001",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "f_illegal_zero",
+   "src": [
+    "firmware/tests/f_illegal_zero.S"
+   ],
+   "cause": "ILLEGAL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_illegal_csr",
+   "src": [
+    "firmware/tests/f_illegal_csr.S"
+   ],
+   "cause": "ILLEGAL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_illegal_funct7",
+   "src": [
+    "firmware/tests/f_illegal_funct7.S"
+   ],
+   "cause": "ILLEGAL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_illegal_fencei",
+   "src": [
+    "firmware/tests/f_illegal_fencei.S"
+   ],
+   "cause": "ILLEGAL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_illegal_load",
+   "src": [
+    "firmware/tests/f_illegal_load.S"
+   ],
+   "cause": "ILLEGAL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_illegal_shift",
+   "src": [
+    "firmware/tests/f_illegal_shift.S"
+   ],
+   "cause": "ILLEGAL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_ecall",
+   "src": [
+    "firmware/tests/f_ecall.S"
+   ],
+   "cause": "ECALL",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_fetch_unmapped",
+   "src": [
+    "firmware/tests/f_fetch_unmapped.S"
+   ],
+   "cause": "FETCH_ACCESS",
+   "pc": "00020000",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_fetch_rom_end",
+   "src": [
+    "firmware/tests/f_fetch_rom_end.S"
+   ],
+   "cause": "FETCH_ACCESS",
+   "pc": "00001000",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_load_unmapped",
+   "src": [
+    "firmware/tests/f_load_unmapped.S"
+   ],
+   "cause": "LOAD_ACCESS",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_load_ram_end",
+   "src": [
+    "firmware/tests/f_load_ram_end.S"
+   ],
+   "cause": "LOAD_ACCESS",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_load_sig_byte",
+   "src": [
+    "firmware/tests/f_load_sig_byte.S"
+   ],
+   "cause": "LOAD_ACCESS",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_load_misaligned",
+   "src": [
+    "firmware/tests/f_load_misaligned.S"
+   ],
+   "cause": "LOAD_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_lh_misaligned",
+   "src": [
+    "firmware/tests/f_lh_misaligned.S"
+   ],
+   "cause": "LOAD_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_store_unmapped",
+   "src": [
+    "firmware/tests/f_store_unmapped.S"
+   ],
+   "cause": "STORE_ACCESS",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_store_rom",
+   "src": [
+    "firmware/tests/f_store_rom.S"
+   ],
+   "cause": "STORE_ACCESS",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_store_sig_byte",
+   "src": [
+    "firmware/tests/f_store_sig_byte.S"
+   ],
+   "cause": "STORE_ACCESS",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_store_misaligned",
+   "src": [
+    "firmware/tests/f_store_misaligned.S"
+   ],
+   "cause": "STORE_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_sh_misaligned",
+   "src": [
+    "firmware/tests/f_sh_misaligned.S"
+   ],
+   "cause": "STORE_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_jalr_misaligned",
+   "src": [
+    "firmware/tests/f_jalr_misaligned.S"
+   ],
+   "cause": "INST_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_jal_misaligned",
+   "src": [
+    "firmware/tests/f_jal_misaligned.S"
+   ],
+   "cause": "INST_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "f_branch_misaligned",
+   "src": [
+    "firmware/tests/f_branch_misaligned.S"
+   ],
+   "cause": "INST_MISALIGNED",
+   "pc": "00000004",
+   "nosigwrite": true
+  },
+  {
+   "name": "p_fwd",
+   "src": [
+    "firmware/tests/p_fwd.S"
+   ],
+   "sig": "00000054",
+   "cause": "EBREAK",
+   "stalls": {
+    "pipe_fwd": 0
+   }
+  },
+  {
+   "name": "p_loaduse",
+   "src": [
+    "firmware/tests/p_loaduse.S"
+   ],
+   "sig": "0000002a",
+   "cause": "EBREAK",
+   "stalls": {
+    "pipe_fwd": 1
+   }
+  },
+  {
+   "name": "p_branch_flush",
+   "src": [
+    "firmware/tests/p_branch_flush.S"
+   ],
+   "sig": "00000055",
+   "cause": "EBREAK",
+   "sig_writes": 1,
+   "flushes": {
+    "pipe_fwd": 1,
+    "pipe_nofwd": 1
+   }
+  },
+  {
+   "name": "p_fault_store",
+   "src": [
+    "firmware/tests/p_fault_store.S"
+   ],
+   "cause": "LOAD_ACCESS",
+   "pc": "0000000c",
+   "nosigwrite": true
+  },
+  {
+   "name": "p_fault_jump",
+   "src": [
+    "firmware/tests/p_fault_jump.S"
+   ],
+   "cause": "LOAD_ACCESS",
+   "pc": "00000008",
+   "nosigwrite": true,
+   "flushes": {
+    "pipe_fwd": 0,
+    "pipe_nofwd": 0
+   }
+  },
+  {
+   "name": "p_fault_misaligned_branch",
+   "src": [
+    "firmware/tests/p_fault_misaligned_branch.S"
+   ],
+   "cause": "LOAD_MISALIGNED",
+   "pc": "0000000c",
+   "nosigwrite": true,
+   "flushes": {
+    "pipe_fwd": 0,
+    "pipe_nofwd": 0
+   }
+  },
+  {
+   "name": "p_x0",
+   "src": [
+    "firmware/tests/p_x0.S"
+   ],
+   "sig": "00000000",
+   "cause": "EBREAK",
+   "stalls": {
+    "pipe_fwd": 0,
+    "pipe_nofwd": 0
+   }
+  },
+  {
+   "name": "p_store_fwd",
+   "src": [
+    "firmware/tests/p_store_fwd.S"
+   ],
+   "sig": "001178b4",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "p_jalr_fwd",
+   "src": [
+    "firmware/tests/p_jalr_fwd.S"
+   ],
+   "sig": "00000080",
+   "cause": "EBREAK"
+  },
+  {
+   "name": "demo",
+   "src": [
+    "firmware/start.S",
+    "firmware/demo.c"
+   ],
+   "kind": "c",
+   "sig": "from:demo_expected",
+   "cause": "EBREAK",
+   "timeout": 100000
+  }
+ ],
+ "random": {
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "items": 180,
+  "timeout": 20000
+ }
+}

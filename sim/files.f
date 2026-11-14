@@ -5,5 +5,7 @@ rtl/rv_branch.sv
 rtl/rv_regfile.sv
 rtl/rv_mem.sv
 rtl/rv_core_sc.sv
+rtl/rv_core_pipe.sv
+rtl/rv_trace.sv
 rtl/rv_top.sv
 sim/core_tb.sv
