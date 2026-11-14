@@ -1,0 +1,9 @@
+rtl/rv_pkg.sv
+rtl/rv_decode.sv
+rtl/rv_alu.sv
+rtl/rv_branch.sv
+rtl/rv_regfile.sv
+rtl/rv_mem.sv
+rtl/rv_core_sc.sv
+rtl/rv_top.sv
+sim/core_tb.sv
