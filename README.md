@@ -1,4 +1,4 @@
-# rv32i-core
+# RV32I Processor in SystemVerilog
 
 A single-cycle and a five-stage pipelined RV32I processor in SystemVerilog, verified against an independent Python ISA model, with a triggerable pipeline trace buffer.
 
@@ -6,7 +6,7 @@ A single-cycle and a five-stage pipelined RV32I processor in SystemVerilog, veri
 
 ## What is implemented
 
-* Full RV32I base: all 37 instructions plus FENCE (no-op), ECALL and EBREAK, with precise stops for illegal instructions, misaligned and unmapped accesses, and misaligned jump/branch targets. Contract: [docs/spec.md](docs/spec.md).
+* RV32I integer instructions, FENCE, ECALL and EBREAK in a bare-metal system, with precise stops for illegal instructions and misaligned or unmapped accesses. [Core specification](docs/spec.md)
 * Single-cycle core and a five-stage pipeline sharing one decoder, ALU, register file, memory wrapper and retirement format. The pipeline runs with forwarding off (interlock, WB-to-ID bypass) or on (EX/MEM and MEM/WB forwarding, one-bubble load-use). Design notes: [docs/architecture.md](docs/architecture.md).
 * A 16-entry trace buffer that records every pipeline stage each cycle and freezes a configurable number of samples after a stall or redirect.
 * A regression that builds every program, simulates all three configurations, and compares every retired instruction with the reference model. Coverage: [docs/test_matrix.md](docs/test_matrix.md). Bugs found along the way: [docs/bugs.md](docs/bugs.md).
@@ -34,7 +34,8 @@ Cycle reduction = (cycles_off - cycles_on) / cycles_off. Cycle counts depend on 
 ## Run it (Windows PowerShell)
 
 ```powershell
-cd $env:USERPROFILE\Documents\rv32i-core
+git clone https://github.com/youssefamarir/rv32i-core.git
+cd rv32i-core
 python tools/run_tests.py
 ```
 
@@ -97,4 +98,4 @@ docs/       spec, architecture, test matrix, bugs
 evidence/   images, logs, VCDs
 ```
 
-No FPGA build has been done. All code in this repository is original; no third-party sources are included.
+The results are from RTL simulation with fixed-latency memory. FPGA timing and board operation have not been measured.

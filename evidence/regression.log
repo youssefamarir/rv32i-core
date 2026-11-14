@@ -1,6 +1,6 @@
 RV32I regression  
 host     Windows 11 python 3.12.14
-gcc      riscv32-esp-elf-gcc.exe (crosstool-NG esp-14.2.0_20241119) 14.2.0  (C:\Users\youss\.platformio\packages\toolchain-riscv32-esp\bin\riscv32-esp-elf-gcc.exe)
+gcc      riscv32-esp-elf-gcc.exe (crosstool-NG esp-14.2.0_20241119) 14.2.0  (PlatformIO)
 iverilog Icarus Verilog version 13.0 (stable) (v13_0)
 compiled sc          PIPELINE=0 FORWARD=1
 compiled pipe_nofwd  PIPELINE=1 FORWARD=0
