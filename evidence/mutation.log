@@ -1,0 +1,14 @@
+killed    WB-to-ID bypass removed                        smoke [pipe_nofwd]: first mismatch at record 1 pc 00000004 [ffe08113          	addi	sp,ra,-2]
+killed    older MEM/WB producer preferred over EX/MEM    alu [pipe_fwd]: first mismatch at record 150 pc 00000398 [ff027193          	andi	gp,tp,-16]
+killed    hazard check ignores rd = x0                   p_x0 [pipe_nofwd]: stalls 10 expected 0
+killed    taken branch does not flush ID                 reset_x0 [pipe_nofwd]: first mismatch at record 4 pc 00000018 [07b00113          	addi	sp,zero,123]
+killed    load-use stall removed                         p_loaduse [pipe_fwd]: first mismatch at record 5 pc 00000014 [00128313          	addi	t1,t0,1]
+killed    older MEM fault does not squash younger EX     p_fault_jump [pipe_nofwd]: flushes 1 expected 0
+killed    store data not forwarded                       smoke [pipe_fwd]: first mismatch at record 4 pc 00000010 [00322023          	sw	gp,0(tp) # 80000000 <_start+0x
+killed    SRA behaves as SRL                             alu [sc]: first mismatch at record 60 pc 00000178 [40b4d833          	sra	a6,s1,a1]
+killed    LB not sign-extended                           mem_lanes [sc]: first mismatch at record 4 pc 00000010 [00150103          	lb	sp,1(a0)]
+killed    JALR does not clear bit 0                      branches [sc]: first mismatch at record 94 pc 000001e0 [00000637          	lui	a2,0x0]
+killed    not-taken branch checks its target             branches [sc]: first mismatch at record 119 pc 0000027c [00408363          	beq	ra,tp,282 <jt5+0x16>]
+killed    SUB decoded as ADD                             reset_x0 [sc]: first mismatch at record 20 pc 00000078 [402003b3          	sub	t2,zero,sp]
+killed    FENCE.I accepted                               f_illegal_fencei [sc]: first mismatch at record 1 pc 00000004 [0000100f          	.word	0x0000100f]
+13/13 mutants killed by the regression

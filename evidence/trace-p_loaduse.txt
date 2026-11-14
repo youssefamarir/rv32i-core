@@ -1,0 +1,13 @@
+trace depth=16 mask=1 post=3 triggered=1 frozen=1 samples=10
+cycle  IF        ID        EX        MEM       WB        fwdA fwdB stall     redirect
+    0  0000     0000x    0000x    0000x    0000x    reg  reg  -         -
+    1  0004     0000     0000x    0000x    0000x    reg  reg  -         -
+    2  0008     0004     0000     0000x    0000x    reg  reg  -         -
+    3  000c     0008     0004     0000     0000x    reg  reg  -         -
+    4  0010     000c     0008     0004     0000     reg  reg  -         -
+    5  0014     0010     000c     0008     0004     reg  MEM  -         -
+    6  0018     0014     0010     000c     0008     reg  reg  load-use  -  <== trigger
+    7  0018     0014     0000x    0010     000c     reg  reg  -         -
+    8  001c     0018     0014     0000x    0010     WB   reg  -         -
+    9  0020     001c     0018     0014     0000x    reg  MEM  -         -
+x after a PC marks an empty (invalid) stage

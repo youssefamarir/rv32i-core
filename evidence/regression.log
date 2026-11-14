@@ -1,0 +1,187 @@
+RV32I regression  
+host     Windows 11 python 3.12.14
+gcc      riscv32-esp-elf-gcc.exe (crosstool-NG esp-14.2.0_20241119) 14.2.0  (C:\Users\youss\.platformio\packages\toolchain-riscv32-esp\bin\riscv32-esp-elf-gcc.exe)
+iverilog Icarus Verilog version 13.0 (stable) (v13_0)
+compiled sc          PIPELINE=0 FORWARD=1
+compiled pipe_nofwd  PIPELINE=1 FORWARD=0
+compiled pipe_fwd    PIPELINE=1 FORWARD=1
+
+== directed tests ==
+  pass smoke                      sc          cycles=     7 retired=    6
+  pass smoke                      pipe_nofwd  cycles=    17 retired=    6 stalls=   6 flushes=   0
+  pass smoke                      pipe_fwd    cycles=    11 retired=    6 stalls=   0 flushes=   0
+  pass reset_x0                   sc          cycles=    27 retired=   26
+  pass reset_x0                   pipe_nofwd  cycles=    59 retired=   26 stalls=  16 flushes=   6
+  pass reset_x0                   pipe_fwd    cycles=    43 retired=   26 stalls=   0 flushes=   6
+  pass alu                        sc          cycles=   189 retired=  188
+  pass alu                        pipe_nofwd  cycles=   453 retired=  188 stalls= 162 flushes=  49
+  pass alu                        pipe_fwd    cycles=   291 retired=  188 stalls=   0 flushes=  49
+  pass mem_lanes                  sc          cycles=   127 retired=  126
+  pass mem_lanes                  pipe_nofwd  cycles=   294 retired=  126 stalls= 109 flushes=  27
+  pass mem_lanes                  pipe_fwd    cycles=   185 retired=  126 stalls=   0 flushes=  27
+  pass branches                   sc          cycles=   134 retired=  133
+  pass branches                   pipe_nofwd  cycles=   340 retired=  133 stalls= 110 flushes=  46
+  pass branches                   pipe_fwd    cycles=   230 retired=  133 stalls=   0 flushes=  46
+  pass fence                      sc          cycles=    19 retired=   18
+  pass fence                      pipe_nofwd  cycles=    39 retired=   18 stalls=  12 flushes=   2
+  pass fence                      pipe_fwd    cycles=    27 retired=   18 stalls=   0 flushes=   2
+  pass f_illegal_zero             sc          cycles=     2 retired=    1
+  pass f_illegal_zero             pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_zero             pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_csr              sc          cycles=     2 retired=    1
+  pass f_illegal_csr              pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_csr              pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_funct7           sc          cycles=     2 retired=    1
+  pass f_illegal_funct7           pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_funct7           pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_fencei           sc          cycles=     2 retired=    1
+  pass f_illegal_fencei           pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_fencei           pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_load             sc          cycles=     2 retired=    1
+  pass f_illegal_load             pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_load             pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_shift            sc          cycles=     2 retired=    1
+  pass f_illegal_shift            pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_illegal_shift            pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_ecall                    sc          cycles=     2 retired=    1
+  pass f_ecall                    pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_ecall                    pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_fetch_unmapped           sc          cycles=     3 retired=    2
+  pass f_fetch_unmapped           pipe_nofwd  cycles=    11 retired=    2 stalls=   2 flushes=   1
+  pass f_fetch_unmapped           pipe_fwd    cycles=     9 retired=    2 stalls=   0 flushes=   1
+  pass f_fetch_rom_end            sc          cycles=     3 retired=    2
+  pass f_fetch_rom_end            pipe_nofwd  cycles=    11 retired=    2 stalls=   2 flushes=   1
+  pass f_fetch_rom_end            pipe_fwd    cycles=     9 retired=    2 stalls=   0 flushes=   1
+  pass f_load_unmapped            sc          cycles=     2 retired=    1
+  pass f_load_unmapped            pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_load_unmapped            pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_load_ram_end             sc          cycles=     2 retired=    1
+  pass f_load_ram_end             pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_load_ram_end             pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_load_sig_byte            sc          cycles=     2 retired=    1
+  pass f_load_sig_byte            pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_load_sig_byte            pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_load_misaligned          sc          cycles=     2 retired=    1
+  pass f_load_misaligned          pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_load_misaligned          pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_lh_misaligned            sc          cycles=     2 retired=    1
+  pass f_lh_misaligned            pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_lh_misaligned            pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_store_unmapped           sc          cycles=     2 retired=    1
+  pass f_store_unmapped           pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_store_unmapped           pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_store_rom                sc          cycles=     2 retired=    1
+  pass f_store_rom                pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_store_rom                pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_store_sig_byte           sc          cycles=     2 retired=    1
+  pass f_store_sig_byte           pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_store_sig_byte           pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_store_misaligned         sc          cycles=     2 retired=    1
+  pass f_store_misaligned         pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_store_misaligned         pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_sh_misaligned            sc          cycles=     2 retired=    1
+  pass f_sh_misaligned            pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_sh_misaligned            pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_jalr_misaligned          sc          cycles=     2 retired=    1
+  pass f_jalr_misaligned          pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_jalr_misaligned          pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_jal_misaligned           sc          cycles=     2 retired=    1
+  pass f_jal_misaligned           pipe_nofwd  cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_jal_misaligned           pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass f_branch_misaligned        sc          cycles=     2 retired=    1
+  pass f_branch_misaligned        pipe_nofwd  cycles=     8 retired=    1 stalls=   2 flushes=   0
+  pass f_branch_misaligned        pipe_fwd    cycles=     6 retired=    1 stalls=   0 flushes=   0
+  pass p_fwd                      sc          cycles=     6 retired=    5
+  pass p_fwd                      pipe_nofwd  cycles=    16 retired=    5 stalls=   6 flushes=   0
+  pass p_fwd                      pipe_fwd    cycles=    10 retired=    5 stalls=   0 flushes=   0
+  pass p_loaduse                  sc          cycles=     8 retired=    7
+  pass p_loaduse                  pipe_nofwd  cycles=    18 retired=    7 stalls=   6 flushes=   0
+  pass p_loaduse                  pipe_fwd    cycles=    13 retired=    7 stalls=   1 flushes=   0
+  pass p_branch_flush             sc          cycles=     7 retired=    6
+  pass p_branch_flush             pipe_nofwd  cycles=    16 retired=    6 stalls=   3 flushes=   1
+  pass p_branch_flush             pipe_fwd    cycles=    13 retired=    6 stalls=   0 flushes=   1
+  pass p_fault_store              sc          cycles=     4 retired=    3
+  pass p_fault_store              pipe_nofwd  cycles=     8 retired=    3 stalls=   1 flushes=   0
+  pass p_fault_store              pipe_fwd    cycles=     8 retired=    3 stalls=   0 flushes=   0
+  pass p_fault_jump               sc          cycles=     3 retired=    2
+  pass p_fault_jump               pipe_nofwd  cycles=     8 retired=    2 stalls=   1 flushes=   0
+  pass p_fault_jump               pipe_fwd    cycles=     7 retired=    2 stalls=   0 flushes=   0
+  pass p_fault_misaligned_branch  sc          cycles=     4 retired=    3
+  pass p_fault_misaligned_branch  pipe_nofwd  cycles=     9 retired=    3 stalls=   1 flushes=   0
+  pass p_fault_misaligned_branch  pipe_fwd    cycles=     8 retired=    3 stalls=   0 flushes=   0
+  pass p_x0                       sc          cycles=    30 retired=   29
+  pass p_x0                       pipe_nofwd  cycles=    34 retired=   29 stalls=   0 flushes=   0
+  pass p_x0                       pipe_fwd    cycles=    34 retired=   29 stalls=   0 flushes=   0
+  pass p_store_fwd                sc          cycles=    20 retired=   19
+  pass p_store_fwd                pipe_nofwd  cycles=    35 retired=   19 stalls=  11 flushes=   0
+  pass p_store_fwd                pipe_fwd    cycles=    26 retired=   19 stalls=   2 flushes=   0
+  pass p_jalr_fwd                 sc          cycles=    17 retired=   16
+  pass p_jalr_fwd                 pipe_nofwd  cycles=    45 retired=   16 stalls=  16 flushes=   4
+  pass p_jalr_fwd                 pipe_fwd    cycles=    31 retired=   16 stalls=   2 flushes=   4
+  isa-check demo: functions ['checksum', 'fill', 'main', 'sort'] use RV32I only, sections inside the map
+  pass demo                       sc          cycles=  7302 retired= 7301
+  pass demo                       pipe_nofwd  cycles= 12442 retired= 7301 stalls=3312 flushes= 912
+  pass demo                       pipe_fwd    cycles=  9130 retired= 7301 stalls=   0 flushes= 912
+
+== random programs (seeds [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ==
+  pass rand_1                     sc          cycles=   503 retired=  502
+  pass rand_1                     pipe_nofwd  cycles=   934 retired=  502 stalls= 335 flushes=  46
+  pass rand_1                     pipe_fwd    cycles=   612 retired=  502 stalls=  13 flushes=  46
+  pass rand_2                     sc          cycles=   471 retired=  470
+  pass rand_2                     pipe_nofwd  cycles=   882 retired=  470 stalls= 327 flushes=  40
+  pass rand_2                     pipe_fwd    cycles=   569 retired=  470 stalls=  14 flushes=  40
+  pass rand_3                     sc          cycles=   436 retired=  435
+  pass rand_3                     pipe_nofwd  cycles=   784 retired=  435 stalls= 270 flushes=  37
+  pass rand_3                     pipe_fwd    cycles=   526 retired=  435 stalls=  12 flushes=  37
+  pass rand_4                     sc          cycles=   487 retired=  486
+  pass rand_4                     pipe_nofwd  cycles=   885 retired=  486 stalls= 310 flushes=  42
+  pass rand_4                     pipe_fwd    cycles=   587 retired=  486 stalls=  12 flushes=  42
+  pass rand_5                     sc          cycles=   466 retired=  465
+  pass rand_5                     pipe_nofwd  cycles=   850 retired=  465 stalls= 292 flushes=  44
+  pass rand_5                     pipe_fwd    cycles=   576 retired=  465 stalls=  18 flushes=  44
+  pass rand_6                     sc          cycles=   453 retired=  452
+  pass rand_6                     pipe_nofwd  cycles=   816 retired=  452 stalls= 285 flushes=  37
+  pass rand_6                     pipe_fwd    cycles=   538 retired=  452 stalls=   7 flushes=  37
+  pass rand_7                     sc          cycles=   498 retired=  497
+  pass rand_7                     pipe_nofwd  cycles=   911 retired=  497 stalls= 309 flushes=  50
+  pass rand_7                     pipe_fwd    cycles=   611 retired=  497 stalls=   9 flushes=  50
+  pass rand_8                     sc          cycles=   478 retired=  477
+  pass rand_8                     pipe_nofwd  cycles=   901 retired=  477 stalls= 319 flushes=  50
+  pass rand_8                     pipe_fwd    cycles=   594 retired=  477 stalls=  12 flushes=  50
+  pass rand_9                     sc          cycles=   492 retired=  491
+  pass rand_9                     pipe_nofwd  cycles=   900 retired=  491 stalls= 322 flushes=  41
+  pass rand_9                     pipe_fwd    cycles=   588 retired=  491 stalls=  10 flushes=  41
+  pass rand_10                    sc          cycles=   469 retired=  468
+  pass rand_10                    pipe_nofwd  cycles=   880 retired=  468 stalls= 319 flushes=  44
+  pass rand_10                    pipe_fwd    cycles=   571 retired=  468 stalls=  10 flushes=  44
+
+== trace buffer ==
+  pass trace_tb (capture, wrap, enable, masked trigger, post window, freeze, rearm, reset)
+  pass trace capture p_loaduse       mask=1 post=3 trigger at cycle 6, 3 post-trigger samples, frozen  (build/trace/p_loaduse.txt)
+  pass trace capture p_branch_flush  mask=2 post=2 trigger at cycle 5, 2 post-trigger samples, frozen  (build/trace/p_branch_flush.txt)
+
+== checker self-test ==
+  pass wrong expected signature: regression exited with code 1 as required
+  pass corrupted reference record: regression exited with code 1 as required
+
+== summary ==
+instruction groups executed by the reference model: alu_imm=4897, alu_reg=1882, branch=2042, jump=218, load=1305, store=1674, system=28, upper=633
+
+cycles (identical retirement stream and signature in every configuration)
+workload      retired          sc  pipe_nofwd    pipe_fwd  reduction
+demo             7301        7302       12442        9130      26.6%
+rand_1            502         503         934         612      34.5%
+rand_2            470         471         882         569      35.5%
+rand_3            435         436         784         526      32.9%
+rand_4            486         487         885         587      33.7%
+rand_5            465         466         850         576      32.2%
+rand_6            452         453         816         538      34.1%
+rand_7            497         498         911         611      32.9%
+rand_8            477         478         901         594      34.1%
+rand_9            491         492         900         588      34.7%
+rand_10           468         469         880         571      35.1%
+total                       12055       21185       14902      29.7%
+
+programs=48 simulations=149 compared_events=38109 configs=sc,pipe_nofwd,pipe_fwd failures=0
+RESULT: PASS
+elapsed 17.6s
